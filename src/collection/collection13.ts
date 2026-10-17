@@ -4,6 +4,9 @@
 
 export function countByRanges(numbers: number[], ranges: [number, number][]): Map<string, number> {
 	const result = new Map<string, number>();
-
+for(const [min, max] of ranges) {
+	const key = `${min}-${max}`;
+	result.set(key, numbers.filter(n => n >= min && n <= max).length);
+}
 	return result;
 }
