@@ -3,5 +3,5 @@
 */
 
 export function* infiniteSequence(): IterableIterator<number> {
-
+for(let i=0; ; i++) yield i;
 }
