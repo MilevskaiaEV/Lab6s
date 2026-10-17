@@ -3,7 +3,5 @@
 */
 
 export function addPrefix(arr: string[]): string[] {
-
+return arr.map(s => `Item: ${s}`);
 }
-
-
