@@ -3,5 +3,8 @@
 */
 
 export function groupBy<T extends Record<string, any>>(arr: T[], key: keyof T): Map<T[keyof T], T[]> {
-
-}
+return arr.reduce((m, item) => {
+	const k = item[key];
+m.set(k, [...(m.get(k) ?? []), item]);
+return m;
+}, new Map<T[keyof T], T[]>());}
