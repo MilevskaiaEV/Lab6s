@@ -7,7 +7,6 @@ export const obj = {
   b: 2,
   c: 3,
   [Symbol.iterator]() {
-
+return Object.values(this).values();
   }
 };
-
