@@ -5,5 +5,7 @@
 export type Product = { price: number; discount: boolean; inStock: boolean };
 
 export function getDiscountedInStockTotal(products: Product[]): number {
-
+return products
+.filter(product => product.discount && product.inStock)
+.reduce((sum, product) => sum + product.price, 0);
 }
