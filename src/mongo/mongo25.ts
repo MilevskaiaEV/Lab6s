@@ -88,8 +88,16 @@ export async function get_department_details(db: Db): Promise<DepartmentDetails[
                 'projects.name': 1,
                 'projects.budget': 1,
                 'projects.status': 1,
-                totalBudget: 1,
-                employeeCount: 1
+                employeeCount: { $size: "$employees" },
+                totalBudget:  {
+                    $sum: {
+                        $map: {
+                            input: "$projects",
+                            as: "p",
+                            in: "$$p.budget"
+                        }
+                    }
+                }
             }
         }
     ]).toArray() as DepartmentDetails[]
