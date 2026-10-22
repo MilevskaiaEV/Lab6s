@@ -76,6 +76,21 @@ export async function get_department_details(db: Db): Promise<DepartmentDetails[
                 as: "projects"
             }
         },
-        
+    {
+            $project:
+            {
+                _id: 1,
+                name: 1,
+                manager: 1,
+                'employees.name': 1,
+                'employees.position': 1,
+                'employees.salary': 1,
+                'projects.name': 1,
+                'projects.budget': 1,
+                'projects.status': 1,
+                totalBudget: 1,
+                employeeCount: 1
+            }
+        }
     ]).toArray() as DepartmentDetails[]
 }
