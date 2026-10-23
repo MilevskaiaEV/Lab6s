@@ -11,4 +11,4 @@ const result = await prisma.course.deleteMany({
         }
     })
     return result.count
-}
+} 
