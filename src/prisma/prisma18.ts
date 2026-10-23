@@ -13,4 +13,4 @@ export async function find_students_with_excellent_grades() {
     return students
         .filter(student => student.grades.some(grade => grade.grade === 5))
         .map(student => ({ person: student.person }))
-}
+} 
