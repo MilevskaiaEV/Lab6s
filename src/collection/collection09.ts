@@ -3,8 +3,6 @@
 */
 
 export function findIntersection(arr1: number[], arr2: number[]): number[] {
-  const intersection = new Set<number>();
 const set2 = new Set(arr2);
-for(const n of arr1) if (set2.has(n)) intersection.add(n);
-  return [...intersection];
+return [...new Set(arr1.filter(n => set2.has(n)))];
 }
